@@ -62,10 +62,10 @@ function statement(invoice, plays) {
         return plays[aPerformance.playID];
     }
 
-    function volumeCreditsFor(perf) {
+    function volumeCreditsFor(aPerformance) {
         let result = 0;
-        result += Math.max(perf.audience - 30, 0);
-        if ("comedy" === playFor(perf).type) volumeCredtis += Math.floor(perf.audience / 5);
+        result += Math.max(aPerformance.audience - 30, 0);
+        if ("comedy" === playFor(aPerformance).type) volumeCredtis += Math.floor(aPerformance.audience / 5);
         return result;
     }
 }
