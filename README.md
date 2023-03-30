@@ -1,5 +1,7 @@
 # RefactoringBook001---First-Example
-First example of refactoring from the Martin Fowler book Refactoring: Improving the Design of Existing Code. Each commit has a message with details of the step.
+First example of refactoring from the Martin Fowler book Refactoring: Improving the Design of Existing Code. Each commit has a message with details of the step. Just for learning purpose.
+
+![image](https://user-images.githubusercontent.com/975220/228981372-51a6e8e5-84a6-48d1-9dd2-98a0839662bd.png)
 
 ## Refactoring Steps 
 
