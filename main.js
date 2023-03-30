@@ -22,14 +22,9 @@ function statement(invoice, plays) {
         result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
         totalAmount += amountFor(perf);
     }
-
-    let volumeCredtis = 0;
-    for (let perf of invoice.performances) {
-        volumeCredtis +=  volumeCreditsFor(perf);
-    }
-
+    let volumeCredits = totalVolumeCredits();
     result += `Amount owed is ${usd(totalAmount)}\n`;
-    result += `You earned ${volumeCredtis} credits\n`;
+    result += `You earned ${volumeCredits} credits\n`;
     return result;
 
     function amountFor(aPerformance) {
@@ -63,7 +58,7 @@ function statement(invoice, plays) {
     function volumeCreditsFor(aPerformance) {
         let result = 0;
         result += Math.max(aPerformance.audience - 30, 0);
-        if ("comedy" === playFor(aPerformance).type) volumeCredtis += Math.floor(aPerformance.audience / 5);
+        if ("comedy" === playFor(aPerformance).type) result += Math.floor(aPerformance.audience / 5);
         return result;
     }
 
@@ -72,6 +67,14 @@ function statement(invoice, plays) {
             "en-US", 
             { style: "currency", currency: "USD", minimumIntegerDigits: 2}
         ).format(aNumber/100);
+    }
+
+    function totalVolumeCredits() {
+        let volumeCredits = 0;
+        for (let perf of invoice.performances) {
+            volumeCredits +=  volumeCreditsFor(perf);
+        }
+        return volumeCredits;
     }
 }
 
